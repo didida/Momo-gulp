@@ -5,7 +5,7 @@
 ## 使用方法
 
 ``` bash
-本机没有gulp的话要先全局安装一遍gulp
+#本机没有gulp的话要先全局安装一遍gulp
 npm install gulp -g  
 ```
 ``` bash
