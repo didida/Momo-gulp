@@ -17,8 +17,7 @@ import buffer from 'vinyl-buffer'
 import glob from 'glob'
 
 // postcss插件
-import cssNext from 'cssnext'
-import preCss from 'precss'
+import salad from 'postcss-salad'
 
 // 默认入口
 import { htmlPath, cssPath, jsPath, assetsPath } from './gulp/path'
@@ -59,10 +58,6 @@ gulp.task('html', () => {
 
 // 引入postcss，并且压缩
 gulp.task('postcss', () => {
-  const processors = [
-    cssNext,
-    preCss
-  ]
 
   const browserOptions = {
     browsers: [
@@ -87,7 +82,7 @@ gulp.task('postcss', () => {
     // .pipe($.watch('app/**/*.css'))
     .pipe($.newer('./tmp/styles'))
     .pipe($.sourcemaps.init())
-    .pipe($.postcss(processors))
+    .pipe($.postcss([salad]))
     .on('error', handleErrors)
     // 清除没有被使用到的css
     .pipe($.if('*.css, *.scss', $.uncss({

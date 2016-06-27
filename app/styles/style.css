@@ -1,6 +1,6 @@
+@import "../components/css/reset.css";
+
 .app {
   display: flex;
   flex-wrap: wrap;
 }
-
-@import "../components/css/home.scss";
